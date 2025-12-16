@@ -57,7 +57,8 @@ export default function Hero() {
             fill
             className="object-cover"
             priority
-            sizes="50vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
+            quality={65}
           />
         </div>
 
@@ -70,6 +71,8 @@ export default function Hero() {
               fill
               className="logo-img object-contain"
               priority
+              sizes="(max-width: 768px) 300px, 490px"
+              quality={65}
             />
           </div>
         </div>

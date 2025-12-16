@@ -59,7 +59,8 @@ export default function ImageGallery() {
                 alt={`Cabaña imagen ${num}`}
                 fill
                 className="object-cover"
-                sizes="(max-width: 768px) 256px, 320px"
+                sizes="(max-width: 768px) 256px, 448px"
+                quality={65}
                 loading={index < 2 ? 'eager' : 'lazy'}
               />
             </div>
