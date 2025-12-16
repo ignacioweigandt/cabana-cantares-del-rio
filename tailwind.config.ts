@@ -9,10 +9,10 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        'josefin': ['"Josefin Sans"', 'sans-serif'],
-        'neuton': ['"Neuton"', 'serif'],
-        'nunito': ['"Nunito"', 'sans-serif'],
-        'playfair': ['"Playfair Display"', 'serif'],
+        'josefin': ['var(--font-josefin)', 'sans-serif'],
+        'neuton': ['var(--font-neuton)', 'serif'],
+        'nunito': ['var(--font-nunito)', 'sans-serif'],
+        'playfair': ['var(--font-playfair)', 'serif'],
       },
       colors: {
         'cabana': {

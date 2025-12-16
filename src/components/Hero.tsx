@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { gsap } from '@/lib/gsap'
 
 export default function Hero() {
@@ -50,20 +51,25 @@ export default function Hero() {
       <div ref={contentRef} className="hero-content flex w-full">
         {/* Mitad izquierda - Imagen principal */}
         <div className="hero-image w-1/2 relative">
-          <img
+          <Image
             src="/images/cabana-main.webp"
             alt="Cabaña Cantares del Río"
-            className="w-full h-full object-cover"
+            fill
+            className="object-cover"
+            priority
+            sizes="50vw"
           />
         </div>
 
         {/* Mitad derecha - Logo centrado */}
         <div className="hero-logo w-1/2 bg-cabana-background flex items-end justify-center pb-8">
-          <div className="relative">
-            <img
+          <div className="relative w-[400px] h-[280px]">
+            <Image
               src="/images/logo.webp"
               alt="Logo Cantares del Río"
-              className="logo-img object-contain w-[400px] h-[280px]"
+              fill
+              className="logo-img object-contain"
+              priority
             />
           </div>
         </div>

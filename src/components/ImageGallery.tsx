@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { scrollLockedImageCarousel, ScrollTrigger } from '@/lib/gsap'
 
 export default function ImageGallery() {
@@ -53,10 +54,13 @@ export default function ImageGallery() {
                 opacity: 0
               }}
             >
-              <img
+              <Image
                 src={`/images/${num === 3 || num === 4 ? `${num} ` : num}.webp`}
                 alt={`Cabaña imagen ${num}`}
-                className="w-full h-full object-cover"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 256px, 320px"
+                loading={index < 2 ? 'eager' : 'lazy'}
               />
             </div>
           ))}
