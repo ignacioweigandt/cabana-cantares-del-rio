@@ -1,0 +1,38 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Neuton:ital,wght@0,200;0,300;0,400;0,700;0,800;1,400&family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --cabana-background: #e5dccd;
+  --cabana-secondary: #8e7765;
+  --cabana-accent: #4b8ce1;
+  --cabana-light: #b5a99a;
+  --cabana-dark: #7a6d5f;
+  --foreground-rgb: 51, 65, 85; /* texto oscuro para mejor contraste con fondo claro */
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background-color: var(--cabana-background);
+  font-family: inherit;
+  line-height: 1.6;
+}
+
+/* Utilidades personalizadas */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
