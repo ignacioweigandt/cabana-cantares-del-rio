@@ -181,9 +181,8 @@ ${formData.message || 'Sin consultas adicionales'}
                     value={formData.name}
                     onChange={handleInputChange}
                     className="w-full px-3 py-2.5 rounded-lg border border-white/30 bg-white/50 backdrop-blur-sm font-nunito focus:outline-none focus:ring-2 transition-all duration-300"
-                    style={{ 
-                      color: '#7a6c5f',
-                      focusRingColor: '#cc6535'
+                    style={{
+                      color: '#7a6c5f'
                     }}
                     placeholder="Tu nombre completo"
                   />

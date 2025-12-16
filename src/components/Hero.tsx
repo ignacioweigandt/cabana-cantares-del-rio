@@ -4,7 +4,7 @@ import { useEffect, useRef } from 'react'
 import { gsap } from '@/lib/gsap'
 
 export default function Hero() {
-  const heroRef = useRef<HTMLSectionElement>(null)
+  const heroRef = useRef<HTMLElement>(null)
   const curtainRef = useRef<HTMLDivElement>(null)
   const contentRef = useRef<HTMLDivElement>(null)
 

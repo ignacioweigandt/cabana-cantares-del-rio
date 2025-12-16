@@ -24,11 +24,15 @@ src/
 │   ├── layout.tsx      # Root layout with metadata
 │   └── globals.css     # Global styles and CSS custom properties
 ├── components/         # Specialized animation components
-│   ├── Hero.tsx                    # Landing hero section
+│   ├── Menu.tsx                    # Animated fullscreen menu with curtain effect
+│   ├── Hero.tsx                    # Landing hero with curtain reveal animation
 │   ├── ProgressiveTextSection.tsx  # Scroll-locked text sequences
 │   ├── ImageGallery.tsx           # Scroll-locked image carousel
 │   ├── CabinDescriptionSection.tsx # Content section
-│   ├── AmenitiesSection.tsx       # Features section  
+│   ├── AmenitiesSection.tsx       # Features section
+│   ├── LocationSection.tsx        # Location/map section
+│   ├── ContactSection.tsx         # Contact information section
+│   ├── Footer.tsx                 # Footer component
 │   ├── AnimatedText.tsx           # SplitText character reveals
 │   ├── TypewriterText.tsx         # Typewriter loop effects
 │   ├── ScrollSection.tsx          # Generic scroll-triggered wrapper
@@ -51,8 +55,13 @@ The project includes sophisticated animation functions:
 **Advanced Scroll Animations:**
 - `scrollLockedTextSequence()` - Pin sections and scrub through text reveals
 - `scrollLockedImageCarousel()` - Scroll-controlled image sequences with responsive behavior
-- `curtainReveal()` - Custom curtain effect animations
+- `curtainReveal()` - Custom curtain effect animations (used in Hero)
 - `typewriterLoop()` - Infinite typewriter text effect
+
+**Menu & Navigation:**
+- Menu component uses clipPath-based curtain animations (top-to-bottom reveal)
+- Staggered menu item animations with 0.15s stagger
+- Navigation uses smooth scrolling to section IDs (home, gallery, amenities, location, contact)
 
 ### Animation Architecture Patterns
 
@@ -119,5 +128,22 @@ The `ProgressiveTextSection` and `ImageGallery` components demonstrate advanced 
 - All animation components use `'use client'` directive
 - GSAP initialization happens in main page component via `useEffect`
 - ScrollTrigger refresh handled automatically on window resize
-- Animation timelines include proper cleanup and responsive handling
+- Animation timelines include proper cleanup in `useEffect` return functions
 - Images organized in `/public/images/` with WebP format optimization
+- Some image files have spaces in filenames (e.g., `3 .webp`, `4 .webp`)
+
+### ScrollTrigger Cleanup Pattern
+Always cleanup ScrollTriggers in component unmount:
+```tsx
+useEffect(() => {
+  // ... animation setup
+
+  return () => {
+    ScrollTrigger.getAll().forEach(trigger => {
+      if (trigger.trigger === containerRef.current) {
+        trigger.kill()
+      }
+    })
+  }
+}, [])
+```
